@@ -1,11 +1,12 @@
 const webpack = require("webpack");
 const path = require('path');
 const CopyPlugin = require('copy-webpack-plugin');
+const VueLoaderPlugin = require('vue-loader').VueLoaderPlugin
 const srcDir = '../src/';
 
 module.exports = {
     entry: {
-        popup: path.join(__dirname, srcDir + 'popup.ts'),
+        popup: path.join(__dirname, srcDir + 'popup.js'),
         options: path.join(__dirname, srcDir + 'options.ts'),
         background: path.join(__dirname, srcDir + 'background.ts'),
         content_script: path.join(__dirname, srcDir + 'content_script.ts')
@@ -26,6 +27,24 @@ module.exports = {
                 test: /\.tsx?$/,
                 use: 'ts-loader',
                 exclude: /node_modules/
+            },
+            {
+                test: /\.js$/,
+                loader: 'babel-loader',
+                exclude: /node_modules/
+            },
+            {
+                test: /\.vue$/,
+                loader: 'vue-loader'
+            },
+            {
+                test: /\.css$/,
+                exclude: /node_modules/,
+                use: [
+                    { loader: "style-loader" },
+                    { loader: "css-loader" },
+                    { loader: "sass-loader" },
+                ]
             }
         ]
     },
@@ -40,5 +59,6 @@ module.exports = {
           ],
           {context: 'public' }
         ),
+        new VueLoaderPlugin()
     ]
 };

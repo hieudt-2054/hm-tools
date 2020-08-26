@@ -15,8 +15,20 @@
     "url": "https://github.com/chibat/chrome-extension-typescript-starter.git"
   },
   "dependencies": {
+    "@babel/core": "^7.11.4",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.1.0",
+    "css-loader": "^4.2.2",
     "jquery": "~3.4.0",
-    "moment": "~2.24.0"
+    "moment": "~2.24.0",
+    "sass": "^1.26.10",
+    "sass-loader": "^10.0.1",
+    "style-loader": "^1.2.1",
+    "vue": "^2.6.12",
+    "vue-loader": "^15.9.3",
+    "vue-style-loader": "^4.1.2",
+    "vue-template-compiler": "^2.6.12",
+    "vuesax": "^4.0.1-alpha.24"
   },
   "devDependencies": {
     "@types/chrome": "~0.0.83",
@@ -25,7 +37,7 @@
     "rimraf": "^2.6.3",
     "ts-loader": "~5.4.3",
     "typescript": "~3.4.5",
-    "webpack": "~4.17.2",
+    "webpack": "^4.44.1",
     "webpack-cli": "~3.1.0",
     "webpack-merge": "~4.1.4"
   }
